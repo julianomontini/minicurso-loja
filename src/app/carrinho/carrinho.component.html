@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Valor(Un)</th>
+        <th>Quantidade</th>
+        <th>Total</th>
+    </tr>
+    <tr *ngFor="let itemCarrinho of itensCarrinhoSorted()" [class]="produtoCaro(itemCarrinho)">
+        <td>{{itemCarrinho.produto.nome}}</td>
+        <td>{{itemCarrinho.produto.valor}}</td>
+        <td>
+            <button (click)="mudaQuantidade(itemCarrinho, false)">-</button>
+            {{itemCarrinho.quantidade}}
+            <button (click)="mudaQuantidade(itemCarrinho, true)">+</button>
+        </td>
+        <td>{{itemCarrinho.getValorTotal()}}</td>
+    </tr>
+    <tr>
+        <td>TOTAL</td>
+        <td></td>
+        <td></td>
+        <td>{{carrinhoService.valorCompra()}}</td>
+    </tr>
+</table>
